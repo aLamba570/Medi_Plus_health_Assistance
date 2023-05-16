@@ -17,7 +17,7 @@ const FrontPage = () => {
                 </div>
     
                 <div className="col-lg-8 col-md-12 col-sm-12 d-col-lg-8 d-col-md-6 d-col-sm-12 p-3">
-                    <h1 className="display-4 fw-bold lh-1 mb-3">MEDICAL SERVICES</h1>
+                    <h1 className="display-4 fw-bold lh-1 mb-3">Medi Plus</h1>
                     <p className="lead">
                         This is an effort to provide people with almost information needed during medical emergencies.
                     </p>
