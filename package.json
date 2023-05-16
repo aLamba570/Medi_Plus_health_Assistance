@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.26.0"
+  },
+  "proxy": "http://localhost:5000/api"
+}
