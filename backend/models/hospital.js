@@ -5,7 +5,7 @@ const Beds = new mongoose.Schema(
         Hospital_Name: {
             required: true,
             type: String,
-            max: 32
+            max: 33
         },
         Contact_Name: {
             required: true,
