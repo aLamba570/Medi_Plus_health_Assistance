@@ -51,7 +51,7 @@ const FrontPage = () => {
     
                         <div className="d-grid gap-2 d-md-flex justify-content-md-start">
                             <Link to="/volunteerpage" className="btn btn-primary btn-lg me-md-2 mb-3"  target="_parent" role="button">
-                                Join as a Volunteer
+                                Join as a volunteer
                             </Link>
                         </div>
     
