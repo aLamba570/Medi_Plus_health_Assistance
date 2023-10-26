@@ -48,126 +48,43 @@ public class MainActivity extends AppCompatActivity {
                     // Creating JSON Object
                     JSONObject object = new JSONObject(response);
 
-                    // From that object we are fetching data
-                    JSONObject object1 = object.getJSONObject("Uttar Pradesh");
-                    JSONObject object2 = object1.getJSONObject("districtData");
-                    JSONObject object3 = object2.getJSONObject("Prayagraj");
-                    JSONObject object4 = object3.getJSONObject("delta");
+                    // Loop through states
+                    for (Iterator<String> states = object.keys(); states.hasNext(); ) {
+                        String stateName = states.next();
+                        JSONObject stateData = object.getJSONObject(stateName);
+                        JSONObject districtData = stateData.getJSONObject("districtData");
 
+                        // Loop through districts within the state
+                        for (Iterator<String> districts = districtData.keys(); districts.hasNext(); ) {
+                            String districtName = districts.next();
+                            JSONObject district = districtData.getJSONObject(districtName);
+                            JSONObject deltaData = district.getJSONObject("delta");
 
-                    String active = object3.getString("active");
-                    String confirmed = object3.getString("confirmed");
-                    String deceased = object3.getString("deceased");
-                    String recovered = object3.getString("recovered");
+                            String active = district.getString("active");
+                            String confirmed = district.getString("confirmed");
+                            String deceased = district.getString("deceased");
+                            String recovered = district.getString("recovered");
 
-                    String confInc = object4.getString("confirmed");
-                    String confDec = object4.getString("deceased");
-                    String confRec = object4.getString("recovered");
+                            String confInc = deltaData.getString("confirmed");
+                            String confDec = deltaData.getString("deceased");
+                            String confRec = deltaData.getString("recovered");
 
-                    model = new Model("Prayagraj", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    // placing data into the app using AdapterClass
-                    modelList.add(model);
-
-                    // Creating JSON Object
-                    object3 = object2.getJSONObject("Ballia");
-
-                    // From that object we are fetching data
-                    active = object3.getString("active");
-                    confirmed = object3.getString("confirmed");
-                    deceased = object3.getString("deceased");
-                    recovered = object3.getString("recovered");
-                    object4 = object3.getJSONObject("delta");
-                    confInc = object4.getString("confirmed");
-                    confDec = object4.getString("deceased");
-                    confRec = object4.getString("recovered");
-
-                    model = new Model("Ballia", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    // placing data into the app using AdapterClass
-                    modelList.add(model);
-
-
-
-                    object3 = object2.getJSONObject("Faridabad");
-
-                    // From that object we are fetching data
-                    active = object3.getString("active");
-                    confirmed = object3.getString("confirmed");
-                    deceased = object3.getString("deceased");
-                    recovered = object3.getString("recovered");
-                    object4 = object3.getJSONObject("delta");
-                    confInc = object4.getString("confirmed");
-                    confDec = object4.getString("deceased");
-                    confRec = object4.getString("recovered");
-
-                    model = new Model("Faridabad", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    // placing data into the app using AdapterClass
-                    modelList.add(model);
-
-                    // Creating JSON Object
-                    object3 = object2.getJSONObject("Lucknow");
-
-                    // From that object we are fetching data
-                    active = object3.getString("active");
-                    confirmed = object3.getString("confirmed");
-                    deceased = object3.getString("deceased");
-                    recovered = object3.getString("recovered");
-                    object4 = object3.getJSONObject("delta");
-
-                    confInc = object4.getString("confirmed");
-                    confDec = object4.getString("deceased");
-                    confRec = object4.getString("recovered");
-
-                    model = new Model("Lucknow", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    // placing data into the app using AdapterClass
-                    modelList.add(model);
-
-                    // Creating JSON Object
-                    object3 = object2.getJSONObject("Varanasi");
-
-                    // From that object we are fetching data
-                    active = object3.getString("active");
-                    confirmed = object3.getString("confirmed");
-                    deceased = object3.getString("deceased");
-                    recovered = object3.getString("recovered");
-                    object4 = object3.getJSONObject("delta");
-
-                    confInc = object4.getString("confirmed");
-                    confDec = object4.getString("deceased");
-                    confRec = object4.getString("recovered");
-
-                    model = new Model("Varanasi", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    // placing data into the app using AdapterClass
-                    modelList.add(model);
-
-                    // Creating JSON Object
-                    object3 = object2.getJSONObject("Agra");
-
-                    // From that object we are fetching data
-                    active = object3.getString("active");
-                    confirmed = object3.getString("confirmed");
-                    deceased = object3.getString("deceased");
-                    recovered = object3.getString("recovered");
-                    object4 = object3.getJSONObject("delta");
-                    confInc = object4.getString("confirmed");
-                    confDec = object4.getString("deceased");
-                    confRec = object4.getString("recovered");
-
-                    model = new Model("Agra", confirmed, deceased, recovered, active, confInc, confDec, confRec);
-                    modelList.add(model);
+                            model = new Model(districtName, confirmed, deceased, recovered, active, confInc, confDec, confRec);
+                            // Add the model to the list
+                            modelList.add(model);
+                        }
+                    }
 
                     adapter = new Adapter(MainActivity.this, modelList);
                     listView.setAdapter(adapter);
 
-                    // In case of error it will run
-                }   catch (JSONException e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // In case of error it will run
                 Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
