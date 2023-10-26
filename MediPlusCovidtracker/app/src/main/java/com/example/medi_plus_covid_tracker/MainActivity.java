@@ -85,6 +85,24 @@ public class MainActivity extends AppCompatActivity {
                     // placing data into the app using AdapterClass
                     modelList.add(model);
 
+
+
+                    object3 = object2.getJSONObject("Faridabad");
+
+                    // From that object we are fetching data
+                    active = object3.getString("active");
+                    confirmed = object3.getString("confirmed");
+                    deceased = object3.getString("deceased");
+                    recovered = object3.getString("recovered");
+                    object4 = object3.getJSONObject("delta");
+                    confInc = object4.getString("confirmed");
+                    confDec = object4.getString("deceased");
+                    confRec = object4.getString("recovered");
+
+                    model = new Model("Faridabad", confirmed, deceased, recovered, active, confInc, confDec, confRec);
+                    // placing data into the app using AdapterClass
+                    modelList.add(model);
+
                     // Creating JSON Object
                     object3 = object2.getJSONObject("Lucknow");
 
