@@ -1,5 +1,4 @@
 # Define the content for the README.md file
-readme_content = """
 # Medi Plus Health Assistance
 
 Medi Plus Health Assistance is a comprehensive health management web application built using the MERN stack (MongoDB, Express.js, React, Node.js). The application offers various features to help users manage their health effectively.
@@ -44,7 +43,6 @@ Medi Plus Health Assistance is a comprehensive health management web application
 
 ### Backend Setup
 1. Clone the repository:
-   \`\`\`bash
    git clone https://github.com/yourusername/Medi_Plus_health_Assistance.git
    cd Medi_Plus_health_Assistance/backend
    \`\`\`
