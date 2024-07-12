@@ -43,7 +43,7 @@ Medi Plus Health Assistance is a comprehensive health management web application
 
 ### Backend Setup
 1. Clone the repository:
-   git clone https://github.com/yourusername/Medi_Plus_health_Assistance.git
+   git clone https://github.com/alamba570/Medi_Plus_health_Assistance.git
    cd Medi_Plus_health_Assistance/backend
    \`\`\`
 2. Install dependencies:
