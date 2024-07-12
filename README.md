@@ -62,17 +62,13 @@ Medi Plus Health Assistance is a comprehensive health management web application
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
-   \`\`\`bash
-   cd ../frontend
-   \`\`\`
+   -cd ../frontend
+
 2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
+   -npm install
+
 3. Start the frontend development server:
-   \`\`\`bash
-   npm start
-   \`\`\`
+   -npm start
 
 ## Usage
 1. Ensure both the backend and frontend servers are running.
