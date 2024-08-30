@@ -84,13 +84,3 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch: \`git push origin my-feature-branch\`.
 5. Submit a pull request.
 
-## License
-This project is licensed under the MIT License.
-"""
-
-# Write the content to a README.md file
-readme_path = os.path.join(extract_dir, 'Medi_Plus_health_Assistance-main', 'README.md')
-with open(readme_path, 'w') as readme_file:
-    readme_file.write(readme_content)
-
-readme_path
