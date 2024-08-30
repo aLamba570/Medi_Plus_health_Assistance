@@ -20,6 +20,11 @@ Medi Plus Health Assistance is a comprehensive health management web application
 - 📊 **Health Tracking and Management Functionalities**
 - 🖥️ **Interactive and User-friendly UI/UX Design**
 - 🔔 **Real-time Data Updates and Notifications**
+- 💉 **Plasma Donors**
+- 🛏️ **Hospital Beds Availability**
+- 🏥 **Oxygen Suppliers**
+- 💊 **Medication Suppliers**
+- 🚑 **Ambulance Providers**
 
 ## 💻 Technologies Used
 ### 🖼️ Frontend
